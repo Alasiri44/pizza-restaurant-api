@@ -1,4 +1,4 @@
-from models import db, SerializerMixin
+from . import db, SerializerMixin
 
 class RestaurantPizza(db.Model):
     __tablename__ = 'restaurantpizzas'
@@ -18,3 +18,6 @@ class RestaurantPizza(db.Model):
             self._price = price
         else:
             print('Must be an integer between 1 and 30')
+            
+    def __repr__(self):
+        return f'<Restaurant_Pizza {self.id}, {self.price} >'
