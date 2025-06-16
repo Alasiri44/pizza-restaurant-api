@@ -1,5 +1,5 @@
 from . import db, SerializerMixin
-
+# Restaurant Model
 class Restaurant(db.Model):
     __tablename__ = 'restaurants'
     
