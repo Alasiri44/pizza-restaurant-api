@@ -1,6 +1,6 @@
 from . import db, SerializerMixin
 
-class RestaurantPizza(db.Model):
+class RestaurantPizza(db.Model, SerializerMixin):
     __tablename__ = 'restaurantpizzas'
     
     id = db.Column(db.Integer, primary_key=True)
