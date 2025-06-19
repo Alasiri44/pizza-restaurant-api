@@ -219,4 +219,4 @@ pizza-restaurant-api/
 
 ## 💬 Author
 
-Created by [Your Name]. Feel free to reach out with any questions.
+Created by Austin Pamba. Feel free to reach out with any questions.
