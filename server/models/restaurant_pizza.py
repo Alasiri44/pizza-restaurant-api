@@ -1,4 +1,4 @@
-from . import db, SerializerMixin
+from models.__init__  import db, SerializerMixin
 
 class RestaurantPizza(db.Model, SerializerMixin):
     __tablename__ = 'restaurantpizzas'
@@ -8,14 +8,19 @@ class RestaurantPizza(db.Model, SerializerMixin):
     restaurant_id = db.Column(db.ForeignKey('restaurants.id'))
     pizza_id = db.Column(db.ForeignKey('pizzas.id'))
     
+    restaurant = db.relationship('Restaurant', back_populates= 'restaurant_pizzas' )
+    pizza = db.relationship('Pizza', back_populates= 'restaurant_pizzas')
+    
+    serialize_rules = ('-restaurant.restaurant_pizzas', '-pizzas.restaurant_pizzas', )
+    
     @property
     def price(self):
-        return self._price
+        return self.price
     
     @price.setter
     def price(self, price):
         if price < 30 or price > 1:
-            self._price = price
+            self.price = price
         else:
             print('Must be an integer between 1 and 30')
             

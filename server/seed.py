@@ -3,11 +3,11 @@ import os
 
 sys.path.append("/home/austin/Moringa/phase4/pizza-restaurant-api")
 
-from server import create_app
+from __init__ import create_app, db
 from server.models.restaurant import Restaurant
 from server.models.pizza import Pizza
 from server.models.restaurant_pizza import RestaurantPizza
-from server.models import db
+
 
 from faker import Faker
 import random
@@ -50,6 +50,8 @@ restaurant_names = [
 
 
 with app.app_context():
+    db.create_all()
+    
     Restaurant.query.delete()
     Pizza.query.delete()
     RestaurantPizza.query.delete()
