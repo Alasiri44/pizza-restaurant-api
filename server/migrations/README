@@ -3,32 +3,58 @@
 A simple Flask REST API to manage restaurants, pizzas, and their associations using a many-to-many relationship through `RestaurantPizza`.
 
 ## Setup
+### 1. Clone the repository
 
-Fork and clone the lab repo.
+```console
+$ git clone <your-repo-url>
+$ cd pizza-restaurant-api
+```
 
-Run `pipenv install` and `pipenv shell` .
+### 2. Create virtual environment and install dependencies
+
+Using Pipenv:
 
 ```console
 $ pipenv install
 $ pipenv shell
 ```
 
-Change into the `server` directory:
+Or using venv + pip:
 
 ```console
-$ cd server
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
 ```
 
-The file `server/models.py` defines models named `Customer` and `Item`.
+### 3. Set environment variables (optional)
 
-Run the following commands to create the tables for customers and items.
+```
+$ export PYTHON_PATH=*
+$ export FLASK_APP=app.py
+$ export FLASK_RUN_PORT=5555
+```
+
+### 4. Initialize the database
 
 ```console
 $ flask db init
-$ flask db migrate -m "initial migration"
-$ flask db upgrade head
+$ flask db migrate -m "Initial migration"
+$ flask db upgrade
+```
+
+---
+
+## 🌱 Seed the Database
+
+```console
 $ python seed.py
 ```
+
+Ensure `seed.py` contains sample data for restaurants, pizzas, and restaurant-pizza relationships.
+
+---
+
 
 ## 📁 Folder Structure
 
